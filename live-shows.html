@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live-Shows | Rhythm-House</title>
+  <link rel="stylesheet" href="assets/css/mystyle.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/2.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Basic&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding-top: 80px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .logo-img {
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .navbar-nav .nav-link {
+      color: #000;
+      font-weight: 600;
+      position: relative;
+      padding: 10px 15px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #e91e63 !important;
+    }
+
+    .navbar-nav .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      right: 15px;
+      height: 2px;
+      background-color: #e91e63;
+      border-radius: 1px;
+    }
+
+    .nav-item {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .hero-image {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets/images/musician-playing-electronic-guitar-studio.jpg");
+      height: 50vh;
+      min-height: 300px;
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      font-size: 20px;
+      animation: floatUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+
+    .hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    .event-card {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      margin: 20px 0;
+      animation: floatUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+
+    @media (min-width: 768px) {
+      .event-card {
+        flex-direction: row;
+      }
+    }
+
+    .event-date {
+      background-color: #e91e63;
+      color: white;
+      padding: 16px 12px;
+      min-width: 120px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .event-details {
+      padding: 16px 20px;
+      flex: 1;
+    }
+
+    .event-details h2 {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      margin: 0 0 8px 0;
+    }
+
+    .event-details .info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      color: #444;
+    }
+
+    .event-details .description {
+      margin: 8px 0 12px 0;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      color: #333;
+    }
+
+    .book-btn {
+      background-color: #e91e63;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .book-btn:hover {
+      background-color: #fff;
+      border: 2px solid #e91e63;
+      color: #e91e63;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .upcoming-events {
+      padding: 3rem 0;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 767px) {
+      .event-card {
+        margin: 10px 0;
+      }
+      
+      .event-date {
+        width: 100%;
+        padding: 12px;
+      }
+      
+      .event-details {
+        padding: 12px 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-image {
+        height: 40vh;
+      }
+      
+      .event-details h2 {
+        font-size: 1.2rem;
+      }
+      
+      .book-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1e1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #e91e63;
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .float-up {
+      animation: floatUp 1s ease-out forwards;
+    }
+
+    .h1 {
+      display: flex;
+      justify-content: center;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .p {
+      font-size: 18px;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .us {
+      font-family: sans-serif;
+      animation: floatUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+      font-size: 28px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .h {
+      font-family: sans-serif;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 40px auto;
+      max-width: 1000px;
+      animation: floatUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+
+    .card2 {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 40px auto;
+      max-width: 1000px;
+      animation: floatUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+
+    @media (min-width: 768px) {
+      .card, .card2 {
+        flex-direction: row;
+      }
+    }
+
+    .image {
+      flex: 1;
+      min-height: 300px;
+      background-image: url("assets/images/rows-red-seats-theater.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: sans-serif;
+    }
+
+    .image2 {
+      flex: 1;
+      min-height: 300px;
+      background-image: url("assets/images/wedding-setting.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: sans-serif;
+    }
+
+    .details, .details2 {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+
+    .details h2, .details2 h2 {
+      margin-top: 0;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      margin-bottom: 12px;
+      font-family: sans-serif;
+    }
+
+    .features, .features2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      color: #333;
+      font-family: sans-serif;
+    }
+
+    @media (max-width: 767px) {
+      .card, .card2 {
+        margin: 20px auto;
+      }
+      
+      .image, .image2 {
+        min-height: 250px;
+      }
+      
+      .details, .details2 {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .image, .image2 {
+        min-height: 200px;
+      }
+      
+      .details h2, .details2 h2 {
+        font-size: 1.2rem;
+      }
+      
+      .features, .features2 {
+        gap: 8px;
+      }
+    }
+
+    .yt {
+      font-family: sans-serif;
+      animation: floatUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+      font-size: 28px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .booking-container {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      gap: 2rem;
+    }
+
+    @media (min-width: 992px) {
+      .booking-container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .booking-left {
+      flex: 1;
+    }
+
+    .booking-right {
+      width: 100%;
+      background-color: #e91e63;
+      color: white;
+      padding: 40px 24px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    @media (min-width: 992px) {
+      .booking-right {
+        width: 320px;
+        padding: 71px 24px;
+      }
+    }
+
+    .how-to-book h3,
+    .important-info h3 {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .how-to-book p,
+    .important-info p {
+      margin: 12px 0;
+      line-height: 1.6;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+    .booking-right h3 {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .booking-right p {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .booking-right button {
+      background-color: #fff;
+      color: #e91e63;
+      border: none;
+      padding: 12px 24px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 576px) {
+      .booking-container {
+        padding: 20px;
+        margin: 30px auto;
+      }
+
+      .booking-right {
+        padding: 30px 20px;
+      }
+
+      .how-to-book p,
+      .important-info p {
+        margin: 10px 0;
+      }
+    }
+
+    /* footer */
+    .footer {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    .footer-img {
+      width: 68%;
+      margin-top: -32px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2d2d2d;
+      color: #fff;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background-color: #e91e63;
+      color: #fff !important;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #e91e63;
+    }
+
+    .full-width-line {
+      border-top: 1px solid #444;
+      width: 100%;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loading Spinner Overlay -->
+  <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:2000;display:flex;align-items:center;justify-content:center;">
+    <div class="spinner-border" style="color:#e91e63;width:4rem;height:4rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!------NavBar------>
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/new.PNG" alt="Rhythm-House-Logo" class="logo-img" style="width: 90px;" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="live-shows.html">Live Shows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="membership.html">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 class="h1">live shows & performamces</h1>
+
+      <p class="p">Experience the magic of live music at rhythm house </p>
+
+    </div>
+  </div>
+  <center>
+    <h1 class="us">Upcoming Shows</h1>
+  </center>
+  <div class="container">
+    <h1 class="heading">Live Shows</h1>
+
+    <!-- Event Card 1 -->
+    <div class="event-card">
+      <div class="event-date">
+        <p class="day">22</p>
+        <p class="month">JUN</p>
+        <p class="weekday">Thursday</p>
+      </div>
+      <div class="event-details">
+        <h2>Classical Evening with Ravi Kumar</h2>
+        <p class="info">🕕 6:30 PM - 9:00 PM | 📍 Rhythm House Auditorium</p>
+        <p class="info">🎤 Performers: Ravi Kumar & Ensemble | 🎶 Genre: Indian Classical</p>
+        <p class="info">💸 Entry Fee: $140</p>
+        <p class="description">Experience the soulful melodies of Indian classical music performed by the renowned
+          artist Ravi Kumar.</p>
+        <a href="book.html" class="book-btn" target="_blank">BOOK TICKETS</a>
+      </div>
+    </div>
+
+    <!-- Event Card 2 -->
+    <div class="event-card">
+      <div class="event-date">
+        <p class="day">29</p>
+        <p class="month">JUN</p>
+        <p class="weekday">Thursday</p>
+      </div>
+      <div class="event-details">
+        <h2>Jazz Fusion with Moonlight Quartet</h2>
+        <p class="info">🕗 8:00 PM - 11:00 PM | 📍 Rhythm House Auditorium</p>
+        <p class="info">🎤 Performers: Moonlight Quartet | 🎶 Genre: Jazz Fusion</p>
+        <p class="info">💸 Entry Fee: $300</p>
+        <p class="description">Immerse yourself in the enchanting world of jazz fusion with the talented Moonlight
+          Quartet.</p>
+        <a href="book.html" class="book-btn" target="_blank">BOOK TICKETS</a>
+      </div>
+    </div>
+
+    <!-- Event Card 3 -->
+    <div class="event-card">
+      <div class="event-date">
+        <p class="day">05</p>
+        <p class="month">JUL</p>
+        <p class="weekday">Wednesday</p>
+      </div>
+      <div class="event-details">
+        <h2>Pop Night with Lisa Ray</h2>
+        <p class="info">🕢 7:30 PM - 10:30 PM | 📍 Rhythm House Open Stage</p>
+        <p class="info">🎤 Performer: Lisa Ray | 🎶 Genre: Pop</p>
+        <p class="info">💸 Entry Fee: $230</p>
+        <p class="description">Join pop sensation Lisa Ray for an energetic evening filled with chart-topping hits and
+          crowd vibes.</p>
+        <a href="book.html" class="book-btn" target="_blank">BOOK TICKETS</a>
+      </div>
+    </div>
+
+    <!-- Event Card 4 -->
+    <div class="event-card">
+      <div class="event-date">
+        <p class="day">12</p>
+        <p class="month">JUL</p>
+        <p class="weekday">Wednesday</p>
+      </div>
+      <div class="event-details">
+        <h2>Indie Beats Live</h2>
+        <p class="info">🕖 7:00 PM - 10:00 PM | 📍 Rhythm House Courtyard</p>
+        <p class="info">🎤 Performers: The Indie Strums | 🎶 Genre: Indie Rock</p>
+        <p class="info">💸 Entry Fee: $150</p>
+        <p class="description">Feel the rhythm of raw indie vibes with The Indie Strums in an open-air performance.</p>
+        <a href="book.html" class="book-btn" target="_blank">BOOK TICKETS</a>
+      </div>
+    </div>
+
+    <!-- Event Card 5 -->
+    <div class="event-card">
+      <div class="event-date">
+        <p class="day">19</p>
+        <p class="month">JUL</p>
+        <p class="weekday">Wednesday</p>
+      </div>
+      <div class="event-details">
+        <h2>Retro Night Classics</h2>
+        <p class="info">🕖 6:00 PM - 9:00 PM | 📍 Rhythm House Main Hall</p>
+        <p class="info">🎤 Performers: Retro Vibe Band | 🎶 Genre: Retro</p>
+        <p class="info">💸 Entry Fee: $330</p>
+        <p class="description">Step back in time and enjoy golden oldies with the Retro Vibe Band. Dress in your retro
+          best!</p>
+        <a href="book.html" class="book-btn" target="_blank">BOOK TICKETS</a>
+      </div>
+    </div>
+  </div>
+  <center>
+    <h1 class="yt">Venue Information</h1>
+  </center>
+  <div class="divider2"></div>
+  <div class="card">
+    <div class="image"></div>
+    <div class="details">
+      <h2 class="h2">Rhythm House Auditorium</h2>
+      <p class="p2">
+        Our state-of-the-art auditorium offers excellent acoustics and comfortable seating for up to 200 guests,
+        making it the perfect venue for intimate live performances.
+      </p>
+      <div class="features">
+        <span>🪑 200 Seats</span>
+        <span>🔊 Premium Sound System</span>
+        <span>💡 Professional Lighting</span>
+        <span>❄️ Air Conditioned</span>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  
+
+  <!-- second card -->
+
+  <div class="card2">
+    <div class="image2"></div>
+    <div class="details2">
+      <h2 class="h22">Rhythm House Garden</h2>
+      <p class="p22">
+        Our beautiful outdoor garden space can accommodate up to 150 guests and is perfect for daytime events and
+        festivals during pleasant weather.
+      </p>
+      <div class="features2">
+        <span> 👪150 Capacity</span>
+        <span> 🌲Lush Green surroundings</span>
+        <span> 🍽️Food & Beverage Area</span>
+        <span> ☂️Covered Seating Available</span>☺
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-container">
+    <div class="booking-left">
+      <center>
+        <h2 class="section-title">Booking Information</h2>
+      </center>
+
+      <div class="how-to-book">
+        <h3>How to Book Tickets</h3>
+        <p><span class="icon">🎟️</span> <span class="label in-store">In-store:</span> Visit Rhythm House during
+          business hours to purchase tickets directly.</p>
+        <p><span class="icon">📞</span> <span class="label by-phone">By Phone:</span> Call our ticket hotline at +91
+          1234567890 to reserve tickets.</p>
+        <p><span class="icon">🌐</span> <span class="label online">Online:</span> Book tickets through our website
+          (coming soon).</p>
+      </div>
+
+      <div class="important-info">
+        <h3>Important Information</h3>
+        <p>Tickets are non-refundable but can be transferred to another person.</p>
+        <p>Shows typically begin on time; latecomers may need to wait for an appropriate break to be seated.</p>
+        <p>Members receive a 10% discount on all show tickets.</p>
+        <p>Special seating arrangements can be made for differently-abled guests (please inform in advance).</p>
+      </div>
+    </div>
+
+    <div class="booking-right">
+      <h3>Group Bookings</h3>
+      <p>Planning to attend with a large group?<br>Contact us for special group rates for parties of 10 or more!</p>
+      <a href="contact.html"><button>CONTACT US</button></a>
+    </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="footer pt-5 pb-4">
+    <div class="container px-4 px-lg-5">
+      <div class="row">
+
+        <!-- Rhythm House -->
+        <div class="col-md-3">
+          <img class="footer-img" src="assets/images/footer1.png" alt="" style="width: 41%;">
+          <p>The largest collection of music, from classic to contemporary.</p>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/" class="social-icon" target=_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=en" class="social-icon" target=_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="live-shows.html">Live Shows</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i>123 Music Street, Mumbai, India</li>
+            <li><i class="fas fa-phone me-2"></i>+91 1234567890</li>
+            <li><i class="fas fa-envelope me-2"></i>info@rhythmhouse.com</li>
+          </ul>
+        </div>
+
+        <!-- Opening Hours -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">Opening Hours</h5>
+          <ul class="list-unstyled">
+            <li>Monday - Friday: 10 AM – 9 PM</li>
+            <li>Saturday: 10 AM – 10 PM</li>
+            <li>Sunday: 11 AM – 7 PM</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Full Width Line -->
+    <div class="full-width-line"></div>
+
+    <!-- Copyright -->
+    <div class="text-center pt-3">
+      <p class="mb-0">&copy; 2023 Rhythm House. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+
+
+  <script>
+    // Hide loading overlay when page is fully loaded
+    window.addEventListener('load', function() {
+      document.getElementById('loadingOverlay').style.display = 'none';
+    });
+  </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+</html>

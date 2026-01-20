@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Rhythm-House</title>
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/2.png">
+
+</head>
+
+<body>
+  <!-- Loading Spinner Overlay -->
+  <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:2000;display:flex;align-items:center;justify-content:center;">
+    <div class="spinner-border" style="color:#e91e63;width:4rem;height:4rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!------NavBar------>
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/new.PNG" alt="Rhythm-House-Logo" class="logo-img" style="width: 90px;" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="live-shows.html">Live Shows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="membership.html">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--Slider-->
+  <div class="main-slider">
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="slide-content">
+            <div class="slide-left">
+              <h1>Welcome to Rhythm House</h1>
+              <p>Your ultimate destination for music, live shows and more</p>
+              <a href="product.html" class="btn btn-pink">Explore Products</a>
+            </div>
+            <div class="slide-right" style="background-image: url('assets/images/welcome-to-rhythm-house.jpg');"></div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="slide-content">
+            <div class="slide-left">
+              <h1>Live Shows & Events</h1>
+              <p>Join us for live music experiences in your city</p>
+              <a href="live-shows.html" class="btn btn-pink">View Schedule</a>
+            </div>
+            <div class="slide-right" style="background-image: url('assets/images/live-shows.jpg')"></div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="slide-content">
+            <div class="slide-left">
+              <h1>Exclusive Membership</h1>
+              <p>Join our membership program for special offers and discounts</p>
+             <a href="membership.html" class="btn btn-pink">Learn More</a> 
+            </div>
+            <div class="slide-right" style="background-image: url('assets/images/home-membership.jpg');">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!--------Second Section ------->
+  <!-- <section class="product-categories" style="margin-bottom: 1%;">
+    <h2 class="product-cat">Product Categories</h2>
+
+
+    <div class="container">
+
+      <div class="row mycards d-flex justify-content-center ">
+        <div class="card col-sm-12 col-md-6 col-lg-3 ">
+          <img src="assets/images/high-angle-cds-arrangement.jpg" height="60%" class="card-img-top w-100" alt="..." />
+          <div class="card-body">
+            <h2 class="card-h2">CDs</h2>
+            <p class="card-text">Browse our extensive collection of music CDs</p>
+          </div>
+        </div>
+
+        <div class="card col-sm-12 col-md-6 col-lg-3">
+          <img src="assets/images/product categ 1.jpg" height="60%" class="card-img-top w-100" alt="..." />
+          <div class="card-body">
+            <h2 class="card-h2">DVDs</h2>
+            <p class="card-text">Experience music videos and concerts in high quality</p>
+          </div>
+        </div>
+
+        <div class="card col-sm-12 col-md-6 col-lg-3">
+          <img src="assets/images/tapes-card.jpg" height="60%" class="card-img-top w-100" alt="..." />
+          <div class="card-body">
+            <h2 class="card-h2">Tapes</h2>
+            <p class="card-text">
+              Rediscover classic music on analog tapes
+            </p>
+          </div>
+        </div>
+
+        <div class="card col-sm-12 col-md-6 col-lg-3">
+          <img src="assets/images/tablet-magazines.jpg" height="60%" class="card-img-top w-100" alt="..." />
+          <div class="card-body">
+            <h2 class="card-h2">Magazines</h2>
+            <p class="card-text">
+              Rediscover classic music on analog tapes
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section> -->
+ <!-- Features Section -->
+ <section class="feature-section">
+  <div class="container">
+    <div class="section-title text-center mb-4">
+      <h2>Our Features</h2>
+      <p>Discover what makes Rhythm House special</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="fas fa-music feature-icon"></i>
+          <h3 class="feature-title">Extensive Collection</h3>
+          <p class="feature-text">Browse through our vast collection of CDs, DVDs, tapes, and more from various genres and artists.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="fas fa-ticket-alt feature-icon"></i>
+          <h3 class="feature-title">Live Shows</h3>
+          <p class="feature-text">Experience the magic of live music with our regular concerts and events featuring top artists.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <i class="fas fa-crown feature-icon"></i>
+          <h3 class="feature-title">Membership Benefits</h3>
+          <p class="feature-text">Join our membership program for exclusive discounts, early access to tickets, and special offers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!--Third section -->
+ <!-- <div class="live-shows-sec">
+    <section class="live-shows-section text-center">
+      <div class="container">
+
+        <div class="row py-4 justify-content-center" >
+          <h2 class="section-title">Upcoming Live Shows</h2>
+
+          <div class="col-md-4">
+            <div class="event-card">
+              <div class="card-date d-flex flex-column justify-content-center">
+                <span style="font-size: 1.5rem;">15</span>
+                <span>JUN</span>
+              </div>
+              <div class="card-detail text-start">
+                <h6 class="fw-bold mb-1">Rock Night with The Velvet Chords</h6>
+                <a href="#" class="details-link">Details</a>
+                <p class="mb-1"><i class="fa-regular fa-clock text-danger me-2"></i>7:00 PM - 10:00 PM</p>
+                <p class="mb-1"><i class="fa-solid fa-location-dot text-danger me-2"></i>Rhythm House Auditorium</p>
+                <p class="mb-0"><i class="fa-solid fa-ticket text-danger me-2"></i>Entry Fee: ₹500</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+            <div class="event-card">
+              <div class="card-date d-flex flex-column justify-content-center">
+                <span style="font-size: 1.5rem;">22</span>
+                <span>JUN</span>
+              </div>
+              <div class="card-detail text-start">
+                <h6 class="fw-bold mb-1">Classical Evening with Ravi Kumar</h6>
+                <a href="#" class="details-link">Details</a>
+                <p class="mb-1"><i class="fa-regular fa-clock text-danger me-2"></i>6:30 PM - 9:00 PM</p>
+                <p class="mb-1"><i class="fa-solid fa-location-dot text-danger me-2"></i>Rhythm House Auditorium</p>
+                <p class="mb-0"><i class="fa-solid fa-ticket text-danger me-2"></i>Entry Fee: ₹700</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+            <div class="event-card">
+              <div class="card-date d-flex flex-column justify-content-center">
+                <span style="font-size: 1.5rem;">29</span>
+                <span>JUN</span>
+              </div>
+              <div class="card-detail text-start">
+                <h6 class="fw-bold mb-1">Jazz Fusion with Moonlight Quartet</h6>
+                <a href="#" class="details-link">Details</a>
+                <p class="mb-1"><i class="fa-regular fa-clock text-danger me-2"></i>8:00 PM - 11:00 PM</p>
+                <p class="mb-1"><i class="fa-solid fa-location-dot text-danger me-2"></i>Rhythm House Auditorium</p>
+                <p class="mb-0"><i class="fa-solid fa-ticket text-danger me-2"></i>Entry Fee: ₹600</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mt-4 mb-5">
+          <a href="/live-shows.html">
+            <button class="view-btn">VIEW ALL SHOWS</button>
+          </a>
+        </div>
+    </section>
+  </div>  -->
+ <!-- Products Section -->
+ <section class="products-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Featured Products</h2>
+      <p>Discover our latest and most popular items</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-lg-3">
+        <div class="product-card">
+          <img src="assets/images/The Greatest Showman Soundtrack.jpg" class="product-img" alt="Product">
+          <div class="product-body">
+            <h5 class="product-title">The Greatest Showman Soundtrack</h5>
+            <p class="product-price">₹499</p>
+            <a href="premium-music-collection.html" class="btn btn-pink w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="product-card">
+          <img src="assets/images/Coldplay-AHeadFullofDreams.avif" class="product-img" alt="Product">
+          <div class="product-body">
+            <h5 class="product-title">Coldplay - A Head Full of Dreams</h5>
+            <p class="product-price">₹899</p>
+            <a href="classic-hits.html" class="btn btn-pink w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="product-card">
+          <img src="assets/images/TheBeatles-AbbeyRoad.avif" class="product-img" alt="Product">
+          <div class="product-body">
+            <h5 class="product-title">The Beatles - Abbey Road (road)</h5>
+            <p class="product-price">₹399</p>
+            <a href="modern-pop.html" class="btn btn-pink w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="product-card">
+          <img src="assets/images/CompleteGuidetomusicTheory.avif" class="product-img" alt="Product">
+          <div class="product-body">
+            <h5 class="product-title">Complete Guide to Music Theory</h5>
+            <p class="product-price">₹599</p>
+            <a href="jazz-collection.html" class="btn btn-pink w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Monthly Sales Statistics Section -->
+  <section class="sales-stats-section py-5 mb-5">
+    <div class="container">
+      <div class="section-title text-center mb-5">
+        <h2>Monthly Sales Statistics</h2>
+        <p>Track our performance and growth</p>
+      </div>
+      
+      <div class="row">
+        <!-- Main Chart -->
+        <div class="col-lg-8 mb-4">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Sales Overview (2023)</h3>
+              <div class="chart-actions">
+                <button class="btn-refresh" onclick="refreshChart()">
+                  <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="col-lg-4">
+          <div class="stats-cards">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-rupee-sign"></i>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number">₹1.2M</h3>
+                <p class="stat-label">Total Sales</p>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number">45%</h3>
+                <p class="stat-label">Growth Rate</p>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number">2.5K</h3>
+                <p class="stat-label">Items Sold</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- Stats Section -->
+ <section class="stats-section">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2>Our Achievements</h2>
+      <p>Numbers that speak for themselves</p>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="10000">0</div>
+          <div class="stat-label">Products</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="500">0</div>
+          <div class="stat-label">Live Shows</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="50000">0</div>
+          <div class="stat-label">Customers</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-item">
+          <div class="stat-number counter" data-target="25">0</div>
+          <div class="stat-label">Years</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- fifth section -->
+  <!-- <section class="fifth-sec">
+    <div class="container py-5">
+      <h2 class="text-center fw-bold mb-4">Current Offers & Contests</h2>
+      <div class="row g-4 justify-content-center">
+   
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card p-3 h-100">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="text-danger fw-bold">Buy 2 Get 1 Free</h5>
+              <span class="badge-custom">Limited Time</span>
+            </div>
+            <p>Purchase any two CDs or DVDs and get one free from our selected collection.</p>
+            <p class="text-muted small mb-0">Valid till: June 30, 2023</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card p-3 h-100">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="text-danger fw-bold">Music Quiz Championship</h5>
+              <span class="badge-custom">Contest</span>
+            </div>
+            <p>Participate in our monthly music quiz and win exciting prizes including free concert tickets.</p>
+            <p class="text-muted small mb-0">Registration Open</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card p-3 h-100">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h5 class="text-danger fw-bold">20% Off on Magazines</h5>
+              <span class="badge-custom">Members Only</span>
+            </div>
+            <p>Exclusive discount for members on all international music magazines.</p>
+            <p class="text-muted small mb-0">Ongoing Offer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+ <!-- Testimonials Section -->
+ <section class="testimonials-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center mb-5">
+        <div class="section-title">
+          <h2>What Our Customers Say</h2>
+          <p>Hear from our satisfied customers</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-content">
+            <div class="testimonial-rating mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">"The best place to find rare music collections. Their customer service is exceptional!"</p>
+          </div>
+          <div class="testimonial-author d-flex align-items-center mt-4">
+            <img src="assets/images/ourTeam1.jpg" class="rounded-circle me-3" alt="Customer" style="width: 60px; height: 60px; object-fit: cover;">
+            <div class="author-info">
+              <h5 class="mb-1">Rahul Sharma</h5>
+              <p class="text-muted mb-0">Music Enthusiast</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-content">
+            <div class="testimonial-rating mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">"I've been a member for 5 years and the benefits are amazing. Highly recommended!"</p>
+          </div>
+          <div class="testimonial-author d-flex align-items-center mt-4">
+            <img src="assets/images/ourTeam4.jpg" class="rounded-circle me-3" alt="Customer" style="width: 60px; height: 60px; object-fit: cover;">
+            <div class="author-info">
+              <h5 class="mb-1">Priya Patel</h5>
+              <p class="text-muted mb-0">Premium Member</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-content">
+            <div class="testimonial-rating mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">"The live shows are incredible. The atmosphere and sound quality are top-notch!"</p>
+          </div>
+          <div class="testimonial-author d-flex align-items-center mt-4">
+            <img src="assets/images/ourTeam3.jpg" class="rounded-circle me-3" alt="Customer" style="width: 60px; height: 60px; object-fit: cover;">
+            <div class="author-info">
+              <h5 class="mb-1">Arjun Mehta</h5>
+              <p class="text-muted mb-0">Concert Goer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- sixth section -->
+  <!-- <div class="six-sec">
+    <div class="container py-5">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2 class="fw-bold mb-3">Become a Member</h2>
+          <p class="mb-4">Join our membership program to enjoy exclusive benefits, special discounts, and early access
+            to live shows.</p>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fas fa-check-circle feature-icon me-2"></i>Points on every purchase</li>
+            <li class="mb-2"><i class="fas fa-check-circle feature-icon me-2"></i>Special discounts and offers</li>
+            <li class="mb-2"><i class="fas fa-check-circle feature-icon me-2"></i>Early access to concert tickets</li>
+            <li class="mb-2"><i class="fas fa-check-circle feature-icon me-2"></i>Exclusive member-only events</li>
+          </ul>
+          <a href="/contact.html">
+            <button class=" join-btn mt-3 px-4 py-2 fw-semibold">JOIN NOW</button>
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <img src="assets/images/become-a-member.jpg" alt="Concert Crowd" class="img-fluid shadow rounded-custom">
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to Experience the Best in Music?</h2>
+      <p class="cta-text">Join our community of music lovers and get access to exclusive content and offers.</p>
+      <a href="membership.html" class="cta-btn">Join Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer pt-5 pb-4">
+    <div class="container px-4 px-lg-5">
+      <div class="row">
+
+        <!-- Rhythm House -->
+        <div class="col-md-3">
+          <img class="footer-img" src="assets/images/footer1.png" alt="" style="width: 41%;">
+          <p>The largest collection of music, from classic to contemporary.</p>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/" class="social-icon" target=_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=en" class="social-icon" target=_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="live-shows.html">Live Shows</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">Contact Info</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i>123 Music Street, Mumbai, India</li>
+            <li><i class="fas fa-phone me-2"></i>+91 1234567890</li>
+            <li><i class="fas fa-envelope me-2"></i>info@rhythmhouse.com</li>
+          </ul>
+        </div>
+
+        <!-- Opening Hours -->
+        <div class="col-md-3">
+          <h5 class="fw-bold">Opening Hours</h5>
+          <ul class="list-unstyled">
+            <li>Monday - Friday: 10 AM – 9 PM</li>
+            <li>Saturday: 10 AM – 10 PM</li>
+            <li>Sunday: 11 AM – 7 PM</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Full Width Line -->
+    <div class="full-width-line"></div>
+
+    <!-- Copyright -->
+    <div class="text-center pt-3">
+      <p class="mb-0">&copy; 2023 Rhythm House. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+
+
+  <script>
+    // Hide loading overlay when page is fully loaded
+    window.addEventListener('load', function() {
+      document.getElementById('loadingOverlay').style.display = 'none';
+    });
+  </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Sales Chart
+  const ctx = document.getElementById('salesChart').getContext('2d');
+  let salesChart;
+
+  function initChart() {
+    salesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Monthly Sales (₹)',
+          data: [85000, 92000, 105000, 98000, 110000, 125000, 135000, 142000, 138000, 150000, 165000, 180000],
+          backgroundColor: 'rgba(233, 30, 99, 0.1)',
+          borderColor: '#e91e63',
+          borderWidth: 2,
+          tension: 0.4,
+          fill: true,
+          pointBackgroundColor: '#e91e63',
+          pointBorderColor: '#fff',
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: '#e91e63',
+          pointHoverBorderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleFont: {
+              size: 14,
+              weight: 'bold'
+            },
+            bodyFont: {
+              size: 13
+            },
+            padding: 12,
+            cornerRadius: 8,
+            displayColors: false,
+            callbacks: {
+              label: function(context) {
+                return '₹' + context.parsed.y.toLocaleString();
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.05)'
+            },
+            ticks: {
+              callback: function(value) {
+                return '₹' + value/1000 + 'K';
+              },
+              font: {
+                size: 12
+              }
+            }
+          },
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                size: 12
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function refreshChart() {
+    if (salesChart) {
+      salesChart.destroy();
+    }
+    initChart();
+  }
+
+  // Counter Animation
+  function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const start = 0;
+    const increment = target / (duration / 16); // 60fps
+    let current = start;
+
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        element.textContent = Math.floor(current).toLocaleString();
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target.toLocaleString();
+      }
+    };
+
+    updateCounter();
+  }
+
+  // Initialize counters when they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px' // Start animation slightly before element is fully in view
+  });
+
+  // Observe all counter elements
+  document.querySelectorAll('.counter').forEach(counter => {
+    observer.observe(counter);
+  });
+
+  // Initialize chart on page load
+  document.addEventListener('DOMContentLoaded', initChart);
+</script>
+
+</html>
+
+</html>

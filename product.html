@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Rhythm-House</title>
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/2.png">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Basic&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding-top: 80px;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: Arial Black; */
+}
+html {
+  scroll-behavior: smooth;
+ }
+
+ .logo-img {
+  height: 50px;
+  object-fit: contain;
+}
+
+.navbar-nav .nav-link {
+  color: #000;
+  font-weight: 600;
+  position: relative;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #e91e63 !important;
+}
+
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background-color: #e91e63;
+  border-radius: 1px;
+}
+.nav-item{
+  font-size: 16px;
+  font-weight: 500;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1e1;
+}
+::-webkit-scrollbar-thumb {
+  background: #e91e63;
+}
+   .hero {
+    /* background: url('/assets/images/high-angle-dj-electronic-devices-table.jpg') center center / cover no-repeat; */
+    padding: 8rem 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  .secpro{
+    width: 100%;
+
+  }
+  .proh2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 26px;
+    font-weight: 700;
+}
+.find{
+    width: 100%;
+}
+.findh2{
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 26px;
+    font-weight: 700;
+}
+
+  .search-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .search-section h4 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control, .form-select {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus, .form-select:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25);
+  }
+
+  .search {
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 1px; */
+}
+
+  .search:hover {
+    background: #fff;
+    border: 2px solid #e91e63;
+    color: #e91e63 !important;
+    /* transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4); */
+  }
+
+  .card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-img-top {
+    transform: scale(1.05);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+
+  .price {
+    color: #e91e63;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+  .text-muted {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-outline-secondary {
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    width: 100%;
+    margin-top: 10px;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 1px; */
+}
+  .btn-outline-secondary:hover {
+    background: #fff;
+    /* transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4); */
+    color: #e91e63;
+    border: 2px solid #e0e0e0;
+  }
+
+  .btn-outline-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+  }
+
+  .nav-tabs {
+    border: none;
+    margin-bottom: 2rem;
+  }
+
+  .nav-tabs .nav-link {
+    color: #666;
+    font-weight: 600;
+    border: none;
+    padding: 12px 25px;
+    margin: 0 5px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-tabs .nav-link:hover {
+    color: #e91e63;
+    background: rgba(233, 30, 99, 0.1);
+  }
+
+  .nav-tabs .nav-link.active {
+    color: white;
+    background: #e91e63;
+    border: none;
+  }
+
+  .table {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .table thead {
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+  }
+
+  .table thead th {
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+    background: #e91e63;
+  }
+
+  .table tbody tr {
+    transition: all 0.3s ease;
+  }
+
+  .table tbody tr:hover {
+    background: rgba(233, 30, 99, 0.05);
+  }
+
+  .table td {
+    padding: 1rem;
+    vertical-align: middle;
+    background: #bf909845;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.mt-5 {
+    margin-top: 8rem !important;
+}
+/* footer */
+.footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+.footer-img{
+  width: 87%;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d2d2d;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background-color: #e91e63;
+  color: #fff !important;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #e91e63;
+}
+
+.full-width-line {
+  border-top: 1px solid #444;
+  width: 100%;
+  margin-top: 40px;
+}
+
+#backgroundMusic {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+</style>
+
+</head>
+
+<body>
+  <!-- Loading Spinner Overlay -->
+  <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:2000;display:flex;align-items:center;justify-content:center;">
+    <div class="spinner-border" style="color:#e91e63;width:4rem;height:4rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!------NavBar------>
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+    <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/images/new.PNG" alt="Rhythm-House-Logo" class="logo-img" style="width: 90px;" />
+    </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="live-shows.html">Live Shows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="membership.html">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="badge bg-danger cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero position-relative text-white">
+    <img src="assets/images/view-guitar-musical-instruments-store.jpg" 
+         class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" 
+         alt="Product Banner">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
+  
+    <div class="container position-relative z-1 h-100 d-flex flex-column justify-content-center align-items-center text-center">
+      <h1 class="display-4 fw-bold">Our Products</h1>
+      <p class="lead">Discover Our Extensive Collection of Music and Entertainment</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container mt-5 pt-5">
+    <!-- Hero Section -->
+    <!-- <div class="row mb-5">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body text-center">
+            <h1 class="display-4 fw-bold mb-4">Our Products</h1>
+            <p class="lead">Discover our extensive collection of music media</p>
+          </div>
+        </div>
+      </div>
+  </div> -->
+
+    <!-- Search and Filter Section -->
+ <div class="find">
+    <h2 class="findh2">Find Your Favourite Music</h2>
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search products...">
+              </div>
+        <div class="col-md-3">
+                <select class="form-select" id="categoryFilter">
+                  <option value="">All Categories</option>
+                  <option value="cd">CDs</option>
+                  <option value="dvd">DVDs</option>
+                  <option value="tape">Tapes</option>
+                  <option value="book">Books</option>
+                  <option value="magazine">Magazines</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+                <select class="form-select" id="sortBy">
+                  <option value="name_asc">Name (A-Z)</option>
+                  <option value="name_desc">Name (Z-A)</option>
+                  <option value="price_asc">Price (Low to High)</option>
+                  <option value="price_desc">Price (High to Low)</option>
+          </select>
+        </div>
+              <div class="col-md-2">
+                <button class="btn btn-pink w-100" id="filterBtn">Apply Filters</button>
+      </div>
+      </div>
+  </div>
+</div>
+  </div>
+  </div>
+</div>
+
+    <!-- Products Grid -->
+    <section class="prosec">
+        <h2 class="proh2">Featured Products</h2>
+      <div class="row" id="productsGrid">
+        <!-- Product cards will be dynamically loaded here -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-lg-3">
+              <div class="product-card">
+                <img src="assets/images/high-angle-cds-arrangement.jpg" class="product-img" alt="Product">
+                <div class="product-body">
+                  <h5 class="product-title">Premium CD Collection</h5>
+                  <p class="product-price">₹499</p>
+                  <a href="/product.html" class="btn btn-pink w-100">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+              <div class="product-card">
+                <img src="assets/images/product categ 1.jpg" class="product-img" alt="Product">
+                <div class="product-body">
+                  <h5 class="product-title">Exclusive DVD Collection</h5>
+                  <p class="product-price">₹899</p>
+                  <a href="product.html" class="btn btn-pink w-100">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+              <div class="product-card">
+                <img src="assets/images/tapes-card.jpg" class="product-img" alt="Product">
+                <div class="product-body">
+                  <h5 class="product-title">Classic Tape Collection</h5>
+                  <p class="product-price">₹399</p>
+                  <a href="product.html" class="btn btn-pink w-100">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+              <div class="product-card">
+                <img src="assets/images/tablet-magazines.jpg" class="product-img" alt="Product">
+                <div class="product-body">
+                  <h5 class="product-title">Music Magazine Bundle</h5>
+                  <p class="product-price">₹599</p>
+                  <a href="product.html" class="btn btn-pink w-100">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Price List Section -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+            <h2 class="card-title mb-4">Price List</h2>
+  <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Item Type</th>
+                    <th>Price Range (₹)</th>
+                    <th>Special Offers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CDs</td>
+                    <td>299 - 999</td>
+                    <td>Buy 2 Get 1 Free</td>
+        </tr>
+        <tr>
+          <td>DVDs</td>
+                    <td>399 - 1299</td>
+                    <td>10% off on 3 or more</td>
+        </tr>
+        <tr>
+          <td>Tapes</td>
+                    <td>199 - 599</td>
+                    <td>15% off on vintage collection</td>
+        </tr>
+        <tr>
+                    <td>Books</td>
+                    <td>199 - 799</td>
+                    <td>20% off for members</td>
+        </tr>
+        <tr>
+          <td>Magazines</td>
+                    <td>99 - 299</td>
+                    <td>Monthly subscription available</td>
+        </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Action</th>
+        </tr>
+              </thead>
+              <tbody id="cartItems">
+                <!-- Cart items will be dynamically loaded here -->
+      </tbody>
+    </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="w-100 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Total: ₹<span id="cartTotal">0</span></h5>
+            <button class="btn btn-pink" id="checkoutBtn">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+    <!----- Footer ----->
+    <footer class="footer pt-5 pb-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row">
+  
+          <!-- Rhythm House -->
+          <div class="col-md-3">
+            <img class="footer-img" src="assets/images/footer1.png" alt="" style="width: 41%;">
+            <p>The largest collection of music, from classic to contemporary.</p>
+            <div class="d-flex">
+              <a href="https://www.facebook.com/" class="social-icon" target=_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/?lang=en" class="social-icon" target=_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i
+                  class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+  
+          <!-- Quick Links -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="live-shows.html">Live Shows</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+  
+          <!-- Contact Info -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">Contact Info</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-map-marker-alt me-2"></i>123 Music Street, Mumbai, India</li>
+              <li><i class="fas fa-phone me-2"></i>+91 1234567890</li>
+              <li><i class="fas fa-envelope me-2"></i>info@rhythmhouse.com</li>
+            </ul>
+          </div>
+  
+          <!-- Opening Hours -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">Opening Hours</h5>
+            <ul class="list-unstyled">
+              <li>Monday - Friday: 10 AM – 9 PM</li>
+              <li>Saturday: 10 AM – 10 PM</li>
+              <li>Sunday: 11 AM – 7 PM</li>
+            </ul>
+          </div>
+  
+        </div>
+      </div>
+  
+      <!-- Full Width Line -->
+      <div class="full-width-line"></div>
+  
+      <!-- Copyright -->
+      <div class="text-center pt-3">
+        <p class="mb-0">&copy; 2023 Rhythm House. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    // Sample product data
+    const products = [
+      {
+        id: 1,
+        name: "Premium CD Collection",
+        category: "cd",
+        price: 499,
+        image: "assets/images/high-angle-cds-arrangement.jpg",
+        description: "Extensive collection of premium CDs"
+      },
+      {
+        id: 2,
+        name: "Exclusive DVD Collection",
+        category: "dvd",
+        price: 899,
+        image: "assets/images/product categ 1.jpg",
+        description: "Premium DVD collection"
+      },
+      {
+        id: 3,
+        name: "Classic Tape Collection",
+        category: "tape",
+        price: 399,
+        image: "assets/images/tapes-card.jpg",
+        description: "Vintage tape collection"
+      },
+      {
+        id: 4,
+        name: "Music Magazine Bundle",
+        category: "magazine",
+        price: 599,
+        image: "assets/images/tablet-magazines.jpg",
+        description: "Latest music magazines"
+      }
+    ];
+
+    // Product filtering and display
+    function displayProducts(filteredProducts = products) {
+      const productsGrid = document.getElementById('productsGrid');
+      productsGrid.innerHTML = filteredProducts.map(product => `
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card h-100">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <p class="text-danger fw-bold">₹${product.price}</p>
+              <button class="btn btn-pink" onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Event listeners for filters
+    document.getElementById('filterBtn').addEventListener('click', () => {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('categoryFilter').value;
+      const sortBy = document.getElementById('sortBy').value;
+
+      let filteredProducts = products.filter(product => {
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                            product.description.toLowerCase().includes(searchTerm);
+        const matchesCategory = !category || product.category === category;
+        return matchesSearch && matchesCategory;
+      });
+
+      // Sort products
+      filteredProducts.sort((a, b) => {
+        switch (sortBy) {
+          case 'name_asc':
+            return a.name.localeCompare(b.name);
+          case 'name_desc':
+            return b.name.localeCompare(a.name);
+          case 'price_asc':
+            return a.price - b.price;
+          case 'price_desc':
+            return b.price - a.price;
+          default:
+            return 0;
+        }
+      });
+
+      displayProducts(filteredProducts);
+    });
+
+    // Initialize the page
+    displayProducts();
+
+    // Add event listener for checkout button
+    document.getElementById('checkoutBtn').addEventListener('click', function() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Purchase Complete!',
+            text: 'Thank you for your purchase! Your order has been processed.',
+            background: '#ffffff',
+            confirmButtonColor: '#e91e63'
+        });
+    });
+
+    window.onload = function() {
+      var audio = document.getElementById('backgroundMusic');
+      audio.volume = 0.5; // Set volume to 50%
+      
+      // Check if music was playing before
+      if (localStorage.getItem('musicPlaying') === 'true') {
+        audio.currentTime = parseFloat(localStorage.getItem('musicTime')) || 0;
+        audio.play().catch(function(error) {
+          console.log("Audio play failed:", error);
+        });
+      }
+
+      // Save music state when leaving the page
+      window.addEventListener('beforeunload', function() {
+        localStorage.setItem('musicPlaying', !audio.paused);
+        localStorage.setItem('musicTime', audio.currentTime);
+      });
+
+      // Save music state periodically
+      setInterval(function() {
+        localStorage.setItem('musicPlaying', !audio.paused);
+        localStorage.setItem('musicTime', audio.currentTime);
+      }, 1000);
+    }
+  </script>
+  <script>
+    // Hide loading overlay when page is fully loaded
+    window.addEventListener('load', function() {
+      document.getElementById('loadingOverlay').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

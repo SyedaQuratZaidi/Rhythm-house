@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Rhythm-House</title>
+  <link rel="stylesheet" href="assets/css/contact.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/2.png">
+  <!-- SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <!-- Loading Spinner Overlay -->
+  <div id="loadingOverlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;z-index:2000;display:flex;align-items:center;justify-content:center;">
+    <div class="spinner-border" style="color:#e91e63;width:4rem;height:4rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!------NavBar------>
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/new.PNG" alt="Rhythm-House-Logo" class="logo-img" style="width: 90px;" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="live-shows.html">Live Shows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="membership.html">Membership</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Banner Section -->
+  <section class="contact-hero position-relative text-white">
+    <img src="assets/images/contact-banner.jpg" 
+         class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" 
+         alt="Contact Banner">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-50"></div>
+
+    <div class="container position-relative z-1 h-100 d-flex flex-column justify-content-center align-items-center text-center">
+      <h1 class="display-4 fw-bold">Contact Us</h1>
+      <p class="lead">Get in touch with Rhythm House</p>
+    </div>
+  </section>
+  <!-- info sec -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Contact Information</h2>
+      </div>
+      <div class="row">
+        
+        <!-- Visit Us -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-title">Visit Us</div>
+            <div class="info-text">
+              123 Music Street, Mumbai, India<br>
+              Landmark: Near Central Park
+            </div>
+          </div>
+        </div>
+  
+        <!-- Call Us -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-title">Call Us</div>
+            <div class="info-text">
+              +91 1234567890<br>
+              +91 9876543210
+            </div>
+          </div>
+        </div>
+  
+        <!-- Email Us -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-title">Email Us</div>
+            <div class="info-text">
+              info@rhythmhouse.com<br>
+              support@rhythmhouse.com
+            </div>
+          </div>
+        </div>
+  
+        <!-- Opening Hours -->
+        <div class="col-md-6 col-lg-3">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-title">Opening Hours</div>
+            <div class="info-text">
+              Monday - Friday: 10 AM – 9 PM<br>
+              Saturday: 10 AM – 10 PM<br>
+              Sunday: 11 AM – 7 PM
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Location  -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Our Location</h2>
+      </div>
+  
+      <div class="row g-4">
+        <!-- Map Placeholder -->
+        <div class="col-md-6">
+          <div class="bg-white shadow-sm p-3 p-md-5 rounded h-100">
+            <div class="map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.76160010856!2d67.05662147529705!3d24.871990644796227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33eeca8432bf5%3A0x81dece3730c9b1c5!2sAptech%20Computer%20Education%20Tariq%20Road!5e0!3m2!1sen!2s!4v1745263838852!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Directions -->
+        <div class="col-md-6">
+          <div class="bg-white shadow-sm p-3 p-md-4 rounded h-100">
+            <h5 class="fw-bold mb-3">Getting Here</h5>
+  
+            <p class="mb-2"><i class="fas fa-subway text-danger me-2"></i><strong>By Metro</strong><br>
+              Central Line – Music Street Station (5-minute walk)
+            </p>
+  
+            <p class="mb-2"><i class="fas fa-bus text-danger me-2"></i><strong>By Bus</strong><br>
+              Routes 25, 34, 49 – Music Street Stop
+            </p>
+  
+            <p class="mb-4"><i class="fas fa-car text-danger me-2"></i><strong>By Car</strong><br>
+              Paid parking available at Central Park Garage (2-minute walk)
+            </p>
+  
+            <h6 class="fw-bold">Nearby Landmarks</h6>
+            <ul class="mb-0">
+              <li>Central Park (1-minute walk)</li>
+              <li>City Library (5-minute walk)</li>
+              <li>Arts Theater (7-minute walk)</li>
+              <li>Grand Hotel (10-minute walk)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- form -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3 class="section-heading">Send Us A Message</h3>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="message-card p-4">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter phone number" required>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <select class="form-select" id="subject">
+                  <option selected>Select a subject</option>
+                  <option>General Inquiry</option>
+                  <option>Support</option>
+                  <option>Booking</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Type your message..."></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-pink px-5">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- FAQ's -->
+<div class="faq-sec">
+  <section class="py-5 bg-light">
+    <div class="faq-sec-cont">
+      <div class="text-center mb-4">
+        <h3 class="section-heading">Frequently Asked Questions</h3>
+      </div>
+  
+      <div class="accordion custom-accordion mx-auto" id="faqAccordion" style="max-width: 700px;">
+        <!-- FAQ 1 -->
+        <div class="accordion-item mb-3 rounded shadow-sm">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Do you offer delivery services?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio vel blanditiis deleniti. Fugiat illum quam ex excepturi aperiam. Esse accusantium nemo dignissimos doloribus aliquam nisi explicabo sit eveniet cum eius?
+            </div>
+          </div>
+        </div>
+  
+        <!-- FAQ 2 -->
+        <div class="accordion-item mb-3 rounded shadow-sm">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Can I request a specific album that's not in your inventory?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus praesentium voluptatum at debitis harum tempore mollitia sint minima, quasi ea magni dolorem. Minus nihil in doloremque atque quod. Voluptate, veniam.
+            </div>
+          </div>
+        </div>
+  
+        <!-- FAQ 3 -->
+        <div class="accordion-item mb-3 rounded shadow-sm">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              How can I book tickets for live shows?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus similique doloribus voluptates nihil! Natus, voluptatum officiis? Voluptates fuga nulla aliquid in architecto enim mollitia quasi quam quod non! Facilis, cumque.
+            </div>
+          </div>
+        </div>
+  
+        <!-- FAQ 4 -->
+        <div class="accordion-item mb-3 rounded shadow-sm">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              Do you buy used CDs, DVDs, or vinyl records?
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores magni aperiam quibusdam voluptatem ipsum molestias odit minima, officiis sapiente repellendus voluptatibus. Eaque deserunt dignissimos sapiente recusandae totam nulla fugiat perspiciatis.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section py-4">
+  <div class="container">
+    <div class="row align-items-center justify-content-between bg-pink text-white rounded-3 px-4 py-4 shadow">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <h5 class="fw-bold mb-2">Subscribe to Our Newsletter</h5>
+        <p class="mb-0">Stay updated with our latest releases, upcoming shows, and exclusive offers.</p>
+      </div>
+      <div class="col-md-6">
+        <form class="d-flex">
+          <input type="email" class="form-control me-2 newsletter-input" placeholder="Enter your email address" required>
+          <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+
+    <!----- Footer ----->
+    <footer class="footer pt-5 pb-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row">
+  
+          <!-- Rhythm House -->
+          <div class="col-md-3">
+            <img class="footer-img" src="assets/images/footer1.png" alt="" style="width: 41%;">
+            <p>The largest collection of music, from classic to contemporary.</p>
+            <div class="d-flex">
+              <a href="https://www.facebook.com/" class="social-icon" target=_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/?lang=en" class="social-icon" target=_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/" class="social-icon" target="_blank"><i
+                  class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+  
+          <!-- Quick Links -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="live-shows.html">Live Shows</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+  
+          <!-- Contact Info -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">Contact Info</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-map-marker-alt me-2"></i>123 Music Street, Mumbai, India</li>
+              <li><i class="fas fa-phone me-2"></i>+91 1234567890</li>
+              <li><i class="fas fa-envelope me-2"></i>info@rhythmhouse.com</li>
+            </ul>
+          </div>
+  
+          <!-- Opening Hours -->
+          <div class="col-md-3">
+            <h5 class="fw-bold">Opening Hours</h5>
+            <ul class="list-unstyled">
+              <li>Monday - Friday: 10 AM – 9 PM</li>
+              <li>Saturday: 10 AM – 10 PM</li>
+              <li>Sunday: 11 AM – 7 PM</li>
+            </ul>
+          </div>
+  
+        </div>
+      </div>
+  
+      <!-- Full Width Line -->
+      <div class="full-width-line"></div>
+  
+      <!-- Copyright -->
+      <div class="text-center pt-3">
+        <p class="mb-0">&copy; 2023 Rhythm House. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Handle contact form submission
+    const contactForm = document.querySelector(".message-card form");
+    contactForm.addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      Swal.fire({
+        background: '#ffffff',
+        confirmButtonColor: '#e91e63',
+        icon: 'success',
+        title: 'Message Sent!',
+        text: 'Your message has been sent successfully!'
+      });
+      contactForm.reset();
+    });
+
+    // Handle newsletter subscription
+    const newsletterForm = document.querySelector(".newsletter-section form");
+    const newsletterInput = document.querySelector(".newsletter-input");
+    
+    newsletterForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const email = newsletterInput.value.trim();
+      
+      if (email) {
+        Swal.fire({
+        background: '#ffffff',
+        confirmButtonColor: '#e91e63',
+          icon: 'success',
+          title: 'Subscribed!',
+          text: "Thank you for subscribing to our newsletter! We'll keep you updated with our latest news and offers."
+        });
+        newsletterForm.reset();
+      } else {
+        Swal.fire({
+        background: '#ffffff',
+        confirmButtonColor: '#e91e63',
+          icon: 'warning',
+          title: 'Missing Email',
+          text: 'Please enter your email address to subscribe.'
+        });
+      }
+    });
+  });
+</script>
+
+  <script>
+    // Hide loading overlay when page is fully loaded
+    window.addEventListener('load', function() {
+      document.getElementById('loadingOverlay').style.display = 'none';
+    });
+  </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+</html>
